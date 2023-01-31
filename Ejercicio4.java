@@ -12,5 +12,6 @@ public class Ejercicio4 {
         System.out.println(a);
         Collections.sort(a);
         System.out.println(a);
+        sc.close();
     }
 }
