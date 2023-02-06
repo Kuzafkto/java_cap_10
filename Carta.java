@@ -2,13 +2,19 @@ import java.util.Objects;
 
 public class Carta implements Comparable<Carta>{
 
-  static String[] numeros = {"as", "dos", "tres", "cuatro", "cinco", "seis", "siete", "sota", "caballo", "rey"};
-  static String[] palos = {"bastos", "copas", "espadas", "oros"};
+   static String[] numeros = {"as", "dos", "tres", "cuatro", "cinco", "seis", "siete", "sota", "caballo", "rey"};
+   static String[] palos = {"bastos", "copas", "espadas", "oros"};
   
   private Integer numero;
   private String palo;
 
-  Carta(int palo, int numero){
+  
+  public Carta() {
+    this.numero = (int)(Math.random()*10);
+    this.palo = palos[(int)(Math.random()*4)];
+  }
+
+  public Carta(int palo, int numero){
     this.numero = numero;
     this.palo = palos[palo];
   }
@@ -44,6 +50,9 @@ public class Carta implements Comparable<Carta>{
     return true;
   }
 
+    public String getFigura(){
+      return numeros[this.numero];
+    }
   @Override
   public int compareTo(Carta c) {
     if (palo.equals(c.getPalo())) {
